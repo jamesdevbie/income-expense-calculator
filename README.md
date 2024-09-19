@@ -17,7 +17,7 @@
 
 <b>How to use:</b>
 
-1. Income Expense Calculator can be launched using this URL
+1. Income Expense Calculator can be launched using this <a href="https://income-expense-calculator-eta.vercel.app/">URL</a>
 2. To add Income, click "Add Income" button or to add expense, click "Add Expense" button
 3. In the modal window, Enter description, amount and click add.
 4. Click cancel, hit X-close button or escape button to quit modal window.
