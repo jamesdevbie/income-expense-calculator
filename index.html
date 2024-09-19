@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income Expense Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="shortcut icon"
+      href="https://png.pngtree.com/png-clipart/20230921/original/pngtree-expense-tracker-app-rgb-color-icon-app-mobile-illustration-vector-png-image_12647642.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="head font-semibold text-[2rem]">
+          Income - Expense Calcuator
+        </h1>
+        <div
+          class="flex justify-center rounded-full bg-gradient-to-l from-[#BC4878] to-[#083F9B] py-4 my-5"
+        >
+          <p
+            class="font-medium text-[1rem] tracking-[3px]"
+            id="total-income"
+          ></p>
+          <p
+            class="font-medium text-[1rem] tracking-[3px]"
+            id="total-expense"
+          ></p>
+
+          <p
+            class="font-medium text-[1rem] tracking-[3px]"
+            id="net-balance"
+          ></p>
+        </div>
+        <p class="text-black text-center">
+          <label for="filter">Filter By: </label>
+          <label for="all">
+            <input name="filter" type="radio" id="all" value="all" checked />All
+          </label>
+          <label for="income">
+            <input
+              name="filter"
+              type="radio"
+              id="income"
+              value="income"
+            />Income
+          </label>
+          <label for="expense">
+            <input
+              name="filter"
+              type="radio"
+              id="expense"
+              value="expense"
+            />Expense
+          </label>
+        </p>
+      </header>
+      <main>
+        <section>
+          <div
+            class="add-income-expense flex justify-center items-center gap-36 mb-4"
+          >
+            <div
+              class="income mt-8 rounded-md bg-gradient-to-bl from-[#D3ADCD] to-[#A1477D] shadow-lg shadow-black add-income cursor-pointer"
+            >
+              <p
+                class="income font-bold text-black px-3 py-2 rounded-md tracking-[5px] text-[1rem]"
+              >
+                Add Income
+                <i
+                  class="fa-sharp-duotone fa-solid fa-circle-plus fa-beat"
+                  style="
+                    --fa-primary-color: #74c0fc;
+                    --fa-secondary-color: #74c0fc;
+                  "
+                ></i>
+              </p>
+            </div>
+            <div
+              class="mt-8 rounded-md bg-gradient-to-bl from-[#D3ADCD] to-[#A1477D] shadow-lg shadow-black add-expense cursor-pointer"
+            >
+              <p
+                class="font-bold text-black px-3 py-2 tracking-[5px] text-[1rem]"
+              >
+                Add Expense
+                <i
+                  class="fa-sharp-duotone fa-solid fa-circle-plus fa-beat"
+                  style="
+                    --fa-primary-color: #74c0fc;
+                    --fa-secondary-color: #74c0fc;
+                  "
+                ></i>
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="table-section">
+          <div class="items text-black tracking-wider">
+            <table
+              class="w-[70%] mx-auto border-collapse border border-slate-400"
+            >
+              <thead>
+                <tr>
+                  <th class="border border-slate-300">Description</th>
+                  <th class="border border-slate-300">Amount</th>
+                  <th class="border border-slate-300">Type</th>
+                  <th class="border border-slate-300">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="tbody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="modal" class="">
+      <div
+        class="rounded-md shadow-red-950 bg-green-100 shadow-lg shadow-cyan-500 border-1 w-[30%] mx-auto mt-20 h-1/2"
+      >
+        <div class="flex items-center justify-between pb-16">
+          <h1
+            class="pl-[40%] absolute left-[5.75%] top-[160px] font-extrabold text-[1.5rem] tracking-widest text-black"
+          >
+            Enter Details
+          </h1>
+          <span
+            class="close absolute left-[63%] top-[120px] text-[40px] font-semibold text-red-700"
+            title="Close Modal"
+            >×</span
+          >
+        </div>
+        <form autocomplete="off" class="mb-15% w-[80%] mx-auto mt-10">
+          <p class="leading-8 mb-5 text-lg">
+            <label for="description">Enter Description&nbsp;</label>
+            <input
+              class="rounded-md bg-green-300 border-2 border-cyan-500 mb-4"
+              type="text"
+              name="description"
+              id="description"
+            />
+          </p>
+
+          <p class="leading-8 mb-5 text-lg">
+            <label for="amount"> Enter The Amount</label>
+            <input
+              class="rounded-md bg-green-300 border-2 border-cyan-500"
+              type="number"
+              name="amount"
+              id="amount"
+            />
+          </p>
+
+          <div class="flex justify-center items-center gap-20 pt-6">
+            <button
+              class="px-5 py-1 w-[100px] rounded-xl text-lg bg-gradient-to-r from-[#D3ADCD] to-[#A1477D]"
+              type="button"
+              id="add"
+            >
+              Add
+            </button>
+            <button
+              class="px-5 py-1 w-[100px] rounded-xl text-lg bg-gradient-to-r from-[#D3ADCD] to-[#A1477D]"
+              type="button"
+              id="cancel"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
